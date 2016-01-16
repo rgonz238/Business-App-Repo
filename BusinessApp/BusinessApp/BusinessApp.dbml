@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BusinessDB" Class="BusinessAppDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\BusinessDB.mdf;Integrated Security=True;User Instance=True" SettingsObjectName="BusinessApp.Properties.Settings" SettingsPropertyName="BusinessDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tblComments" Member="tblComments">
+    <Type Name="tblComment">
+      <Column Name="Comment_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Comment" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Order_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Timestamp" Type="System.DateTime" DbType="DateTime2 NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblStates" Member="tblStates">
+    <Type Name="tblState">
+      <Column Name="State_ID" Type="System.String" DbType="NVarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="State" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Association Name="tblState_tblEmployee" Member="tblEmployees" ThisKey="State_ID" OtherKey="State_Province" Type="tblEmployee" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblCustomers" Member="tblCustomers">
+    <Type Name="tblCustomer">
+      <Column Name="Customer_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="First_Name_OR_Company" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Middle_Initial" Type="System.Char" DbType="NChar(1)" CanBeNull="true" />
+      <Column Name="Last_Name" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="Phone_Number" Type="System.String" DbType="NVarChar(14) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(35)" CanBeNull="true" />
+      <Association Name="tblCustomer_tblOrder" Member="tblOrders" ThisKey="Customer_ID" OtherKey="Customer_ID" Type="tblOrder" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblDepartments" Member="tblDepartments">
+    <Type Name="tblDepartment">
+      <Column Name="Department_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Department_Name" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Supervisor" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="tblDepartment_tblEmployee" Member="tblEmployees" ThisKey="Department_ID" OtherKey="Department_ID" Type="tblEmployee" />
+      <Association Name="tblEmployee_tblDepartment" Member="tblEmployee" ThisKey="Supervisor" OtherKey="Employee_ID" Type="tblEmployee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblDevice_Types" Member="tblDevice_Types">
+    <Type Name="tblDevice_Type">
+      <Column Name="Type_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="tblDevice_Type_tblOrder_Item" Member="tblOrder_Items" ThisKey="Type_ID" OtherKey="Type_ID" Type="tblOrder_Item" />
+      <Association Name="tblDevice_Type_tblProductItem" Member="tblProductItems" ThisKey="Type_ID" OtherKey="Type_ID" Type="tblProductItem" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblEmployees" Member="tblEmployees">
+    <Type Name="tblEmployee">
+      <Column Name="Employee_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="First_Name" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Middle_Initial" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Last_Name" Type="System.String" DbType="NVarChar(35) NOT NULL" CanBeNull="false" />
+      <Column Name="Street_Address" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="State_Province" Type="System.String" DbType="NVarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="Zip_Code" Type="System.String" DbType="NVarChar(12) NOT NULL" CanBeNull="false" />
+      <Column Name="Phone_Number" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="SSN" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Drivers_Lic_Num" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="Drivers_Lic_State" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="Is_Supervisor" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Department_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="tblEmployee_tblDepartment" Member="tblDepartments" ThisKey="Employee_ID" OtherKey="Supervisor" Type="tblDepartment" />
+      <Association Name="tblEmployee_tblOrder" Member="tblOrders" ThisKey="Employee_ID" OtherKey="Emp_In_Charge" Type="tblOrder" />
+      <Association Name="tblDepartment_tblEmployee" Member="tblDepartment" ThisKey="Department_ID" OtherKey="Department_ID" Type="tblDepartment" IsForeignKey="true" />
+      <Association Name="tblState_tblEmployee" Member="tblState" ThisKey="State_Province" OtherKey="State_ID" Type="tblState" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblOrder_Items" Member="tblOrder_Items">
+    <Type Name="tblOrder_Item">
+      <Column Name="Item_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Model" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Serial_Number" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Price" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Comments" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Type_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Brand_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Order_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="tblDevice_Type_tblOrder_Item" Member="tblDevice_Type" ThisKey="Type_ID" OtherKey="Type_ID" Type="tblDevice_Type" IsForeignKey="true" />
+      <Association Name="tblOrder_tblOrder_Item" Member="tblOrder" ThisKey="Order_ID" OtherKey="Order_ID" Type="tblOrder" IsForeignKey="true" />
+      <Association Name="tblProductBrand_tblOrder_Item" Member="tblProductBrand" ThisKey="Brand_ID" OtherKey="Brand_ID" Type="tblProductBrand" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblOrder_Status" Member="tblOrder_Status">
+    <Type Name="tblOrder_Status">
+      <Column Name="Status_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="tblOrder_Status_tblOrder" Member="tblOrders" ThisKey="Status_ID" OtherKey="Status_ID" Type="tblOrder" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblOrders" Member="tblOrders">
+    <Type Name="tblOrder">
+      <Column Name="Order_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Order_Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Finish_Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Total" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Customer_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Emp_In_Charge" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Status_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Service_Type_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="tblOrder_tblOrder_Item" Member="tblOrder_Items" ThisKey="Order_ID" OtherKey="Order_ID" Type="tblOrder_Item" />
+      <Association Name="tblCustomer_tblOrder" Member="tblCustomer" ThisKey="Customer_ID" OtherKey="Customer_ID" Type="tblCustomer" IsForeignKey="true" />
+      <Association Name="tblEmployee_tblOrder" Member="tblEmployee" ThisKey="Emp_In_Charge" OtherKey="Employee_ID" Type="tblEmployee" IsForeignKey="true" />
+      <Association Name="tblOrder_Status_tblOrder" Member="tblOrder_Status" ThisKey="Status_ID" OtherKey="Status_ID" Type="tblOrder_Status" IsForeignKey="true" />
+      <Association Name="tblService_Type_tblOrder" Member="tblService_Type" ThisKey="Service_Type_ID" OtherKey="Service_Type_ID" Type="tblService_Type" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblProductBrands" Member="tblProductBrands">
+    <Type Name="tblProductBrand">
+      <Column Name="Brand_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Brand_Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="tblProductBrand_tblOrder_Item" Member="tblOrder_Items" ThisKey="Brand_ID" OtherKey="Brand_ID" Type="tblOrder_Item" />
+      <Association Name="tblProductBrand_tblProductItem" Member="tblProductItems" ThisKey="Brand_ID" OtherKey="Brand_ID" Type="tblProductItem" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblService_Types" Member="tblService_Types">
+    <Type Name="tblService_Type">
+      <Column Name="Service_Type_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Service_Desc" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Base_Price" Type="System.Decimal" DbType="Decimal(6,2)" CanBeNull="true" />
+      <Column Name="Per_Hour" Type="System.Decimal" DbType="Decimal(6,2)" CanBeNull="true" />
+      <Column Name="Per_Day" Type="System.Decimal" DbType="Decimal(7,2)" CanBeNull="true" />
+      <Column Name="Per_Year" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Association Name="tblService_Type_tblOrder" Member="tblOrders" ThisKey="Service_Type_ID" OtherKey="Service_Type_ID" Type="tblOrder" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblProductItems" Member="tblProductItems">
+    <Type Name="tblProductItem">
+      <Column Name="Product_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Model" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Is_In_Stock" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Comments" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Type_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Brand_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Serial_Number" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="tblProductBrand_tblProductItem" Member="tblProductBrand" ThisKey="Brand_ID" OtherKey="Brand_ID" Type="tblProductBrand" IsForeignKey="true" />
+      <Association Name="tblDevice_Type_tblProductItem" Member="tblDevice_Type" ThisKey="Type_ID" OtherKey="Type_ID" Type="tblDevice_Type" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

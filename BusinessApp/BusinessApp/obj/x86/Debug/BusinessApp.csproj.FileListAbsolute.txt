@@ -1,0 +1,27 @@
+C:\Users\BobbyBear\AppData\Local\Temporary Projects\BusinessApp\bin\Debug\BusinessDB.mdf
+C:\Users\BobbyBear\AppData\Local\Temporary Projects\BusinessApp\bin\Debug\BusinessDB_log.ldf
+C:\Users\BobbyBear\AppData\Local\Temporary Projects\BusinessApp\bin\Debug\BusinessApp.exe.config
+C:\Users\BobbyBear\AppData\Local\Temporary Projects\BusinessApp\bin\Debug\BusinessApp.exe
+C:\Users\BobbyBear\AppData\Local\Temporary Projects\BusinessApp\bin\Debug\BusinessApp.pdb
+C:\Users\BobbyBear\AppData\Local\Temporary Projects\BusinessApp\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\BobbyBear\AppData\Local\Temporary Projects\BusinessApp\obj\x86\Debug\BusinessApp.frmMain.resources
+C:\Users\BobbyBear\AppData\Local\Temporary Projects\BusinessApp\obj\x86\Debug\BusinessApp.Properties.Resources.resources
+C:\Users\BobbyBear\AppData\Local\Temporary Projects\BusinessApp\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\BobbyBear\AppData\Local\Temporary Projects\BusinessApp\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\BobbyBear\AppData\Local\Temporary Projects\BusinessApp\obj\x86\Debug\BusinessApp.exe
+C:\Users\BobbyBear\AppData\Local\Temporary Projects\BusinessApp\obj\x86\Debug\BusinessApp.pdb
+C:\Users\BobbyBear\Documents\Visual Studio 2010\Projects\C#\BusinessApp\BusinessApp\bin\Debug\BusinessApp.exe.config
+C:\Users\BobbyBear\Documents\Visual Studio 2010\Projects\C#\BusinessApp\BusinessApp\obj\x86\Debug\BusinessApp.exe
+C:\Users\BobbyBear\Documents\Visual Studio 2010\Projects\C#\BusinessApp\BusinessApp\obj\x86\Debug\BusinessApp.pdb
+C:\Users\BobbyBear\Documents\Visual Studio 2010\Projects\C#\BusinessApp\BusinessApp\bin\Debug\BusinessApp.exe
+C:\Users\BobbyBear\Documents\Visual Studio 2010\Projects\C#\BusinessApp\BusinessApp\bin\Debug\BusinessApp.pdb
+C:\Users\BobbyBear\Documents\Visual Studio 2010\Projects\C#\BusinessApp\BusinessApp\obj\x86\Debug\BusinessApp.frmMain.resources
+C:\Users\BobbyBear\Documents\Visual Studio 2010\Projects\C#\BusinessApp\BusinessApp\obj\x86\Debug\BusinessApp.Properties.Resources.resources
+C:\Users\BobbyBear\Documents\Visual Studio 2010\Projects\C#\BusinessApp\BusinessApp\obj\x86\Debug\BusinessApp.frmNewCustomer.resources
+C:\Users\BobbyBear\Documents\Visual Studio 2010\Projects\C#\BusinessApp\BusinessApp\bin\Debug\BusinessDB.mdf
+C:\Users\BobbyBear\Documents\Visual Studio 2010\Projects\C#\BusinessApp\BusinessApp\bin\Debug\BusinessDB_log.ldf
+C:\Users\BobbyBear\Documents\Visual Studio 2010\Projects\C#\BusinessApp\BusinessApp\obj\x86\Debug\BusinessApp.frmAddCustItems.resources
+C:\Users\BobbyBear\Documents\Visual Studio 2010\Projects\C#\BusinessApp\BusinessApp\obj\x86\Debug\BusinessApp.frmSecurityLogin.resources
+C:\Users\BobbyBear\Documents\Visual Studio 2010\Projects\C#\BusinessApp\BusinessApp\obj\x86\Debug\BusinessApp.csproj.GenerateResource.Cache
+C:\Users\BobbyBear\Documents\Visual Studio 2010\Projects\C#\BusinessApp\BusinessApp\obj\x86\Debug\BusinessApp.frmNewOrder.resources
+C:\Users\BobbyBear\Documents\Visual Studio 2010\Projects\C#\BusinessApp\BusinessApp\obj\x86\Debug\BusinessApp.csprojResolveAssemblyReference.cache
