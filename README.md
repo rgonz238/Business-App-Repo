@@ -1,2 +1,2 @@
 # Business-App-Repo
-Business App C# program
+This is a repository for a business application
