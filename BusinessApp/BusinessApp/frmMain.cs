@@ -56,6 +56,8 @@ namespace BusinessApp
 
             else 
             {
+                //FIXME: The customer needs to be in a nested dictionary keyed with index, and then with cust id
+                //       e.g. Dictionary<int comboBxIndex>, Dictionary<int customerId, customer name>
                 var cu = from c in badc.tblCustomers
                          where c.Customer_ID == cmbBxExistCust.SelectedIndex
                          select c;

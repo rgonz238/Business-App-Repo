@@ -26,11 +26,25 @@ namespace BusinessApp.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\BusinessDB.md" +
-            "f;Integrated Security=True;Connect Timeout=30")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\GIT_Repos\\Business-Applica" +
+            "tion\\BusinessApp\\BusinessApp\\bin\\Debug\\BusinessDB.mdf;Integrated Security=True;R" +
+            "eplication=False;Connect Timeout=30;User Instance=False;Context Connection=False" +
+            "")]
         public string BusinessDBConnectionString {
             get {
                 return ((string)(this["BusinessDBConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\BusinessDB.md" +
+            "f;Integrated Security=True;Replication=False;Connect Timeout=30;User Instance=Fa" +
+            "lse;Context Connection=False")]
+        public string BusinessDBConnectionString1 {
+            get {
+                return ((string)(this["BusinessDBConnectionString1"]));
             }
         }
     }

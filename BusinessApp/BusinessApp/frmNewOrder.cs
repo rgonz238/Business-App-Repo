@@ -78,11 +78,11 @@ namespace BusinessApp
 
         private void chkBxPurchase_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkBxPurchase.Checked == true)
+            /*if (chkBxPurchase.Checked == true)
             {
                 formAddItems.setOrderListItems(productID_OrderItemsDictExist);
                 formAddItems.ShowDialog();
-            }
+            }*/
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
